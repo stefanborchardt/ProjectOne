@@ -39,14 +39,14 @@ if __name__ == "__main__":
     incongruent = data[data.Congruence==' Incongruent']['Time']
     
     # perform two-tailed test for dependent samples
-    t, p = ttest_rel(congruent, incongruent)
+    t, p = ttest_rel(incongruent, congruent)
     # convert p to one-sided
     p = p / 2
     print('t value: {0}, one-sided p value: {1}'.format(t, p))
     
     # obtain critical value
-    critical = ttest.ppf([0.01], len(congruent)-1) / 2
-    print('t-critical value at alpha=0.01: {0}'.format(critical))
+    critical = ttest.ppf([0.005], len(congruent)-1)
+    print('t-critical value at alpha=0.01/2: {0}'.format(critical))
     
     
  
